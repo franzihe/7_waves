@@ -35,7 +35,7 @@ for (i = 0; i < ls.length; i++) {
                  out_file        = loc+cft+cfr+cls+cll+".FEM"
             
             
-                if (ll[k] == 500 ){
+                if (ll[k] == 500 mm){
                     if (ls[i] == 125  || ls[i] == 250 || ls[i] == 500){
                         // run analysis
                         //console.log(ls[i], ll[k], out_file)
@@ -117,7 +117,7 @@ for (i = 0; i < ls.length; i++) {
                         continue
                     }
                 }
-                if (ll[k] == 300 ){
+                if (ll[k] == 300 mm){
                     if (ls[i] == 150  || ls[i] == 300 ){
                         // run analysis
                         //console.log(ll[k], ls[i], out_file)
