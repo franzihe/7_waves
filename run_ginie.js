@@ -76,7 +76,23 @@ for (i = 0; i < ls.length; i++) {
 
             // console.log("File saved: " + out_file);
 
-
+            Delete(CornerD);
+            Delete(MidAB);
+            Delete(MidCD);
+            Delete(MidAD);
+            Delete(CornerA);
+            Delete(JoinedFlange);
+            Delete(Pl_B_up);
+            Delete(Pl_A_up);
+            Delete(Pl_A_dn);
+            Delete(Pl_B_dn);
+            Delete(Pl_C_up);
+            Delete(Pl_C_dn);
+            Delete(Pl_D_up);
+            Delete(Pl_D_dn);
+            Delete(CornerC);
+            Delete(MidBC);
+            Delete(CornerB);
             
         }
     }
