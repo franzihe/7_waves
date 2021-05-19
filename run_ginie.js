@@ -1,15 +1,9 @@
-var ls = new Array(125, 250, 500, 150, 300)      // length short
-var ll = new Array(500, 300, )                 // length long
-var sh = 100                            // Sleeve_H
-var fr = new Array(0.5, 0.33, 0.25, 0.2)         // flangeradius
-var counter = 0
+ls = new Array(125, 250, 500, 150, 300)      // length short
+ll = new Array(500, 300, )                 // length long
+sh = 100                            // Sleeve_H
+fr = new Array(0.5, 0.33, 0.25, 0.2)         // flangeradius
+counter = 0
 
-var i; 
-var k;
-var length_short; 
-var length_long; 
-var Sleeve_H;
-var flangeradius;
 
 // function export_rectangular(length_short, length_long, Sleeve_H, flangeradius, out_file) {
 //     // code to be executed
