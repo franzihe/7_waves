@@ -35,9 +35,10 @@ for (i = 0; i < ls.length; i++) {
                  out_file        = loc+cft+cfr+cls+cll+".FEM"
             
             
-                if (ll[k] == 500 mm){
-                    if (ls[i] == 125 mm || ls[i] == 250 mm|| ls[i] == 500 mm){
+                if (ll[k] == 500 ){
+                    if (ls[i] == 125  || ls[i] == 250 || ls[i] == 500){
                         // run analysis
+                        //console.log(ls[i], ll[k], out_file)
                         CornerA = Point(-length_short / 2, -length_long / 2,  0 m);
                         CornerB = Point(-length_short / 2, length_long / 2, 0 m);
                         CornerC = Point(length_short / 2, length_long / 2, 0 m);
@@ -116,9 +117,10 @@ for (i = 0; i < ls.length; i++) {
                         continue
                     }
                 }
-                if (ll[k] == 300 mm){
-                    if (ls[i] == 150 mm || ls[i] == 300 mm){
+                if (ll[k] == 300 ){
+                    if (ls[i] == 150  || ls[i] == 300 ){
                         // run analysis
+                        //console.log(ll[k], ls[i], out_file)
                         CornerA = Point(-length_short / 2, -length_long / 2,  0 m);
                         CornerB = Point(-length_short / 2, length_long / 2, 0 m);
                         CornerC = Point(length_short / 2, length_long / 2, 0 m);
