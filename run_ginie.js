@@ -76,9 +76,9 @@ for (i = 0; i < ls.length; i++) {
         for (j = 0; j < fr.length; j++){
 
         
-            length_short = ls[i] //mm;
-            length_long  = ll[k] //mm;
-            Sleeve_H     = sh //mm;
+            length_short = ls[i] mm;
+            length_long  = ll[k] mm;
+            Sleeve_H     = sh mm;
             flangeradius = fr[j] * length_short 
             counter = counter +1
 
