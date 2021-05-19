@@ -1,10 +1,9 @@
 ls              = new Array(125 mm, 250 mm, 500 mm, 150 mm, 300 mm); // length short
 ll              = new Array(500 mm, 300 mm);                         // length long
-Sleeve_H        = 100 mm;                                      // Sleeve_H
+Sleeve_H        = 100 mm;                                            // Sleeve_H
 fr              = new Array(0.5, 0.33, 0.25, 0.2);                   // flangeradius
-plate_thickness = T10;                                  // plate thickness
+plate_thickness = T10;                                               // plate thickness
 ft              = new Array(T5, T10, T15);                           // flange thickness
-counter         = 0;
 
 
 loc = "C:/DNVGL/Workspaces/GeniE/RectangularSCF/mesh10/T"
@@ -27,14 +26,13 @@ for (i = 0; i < ls.length; i++) {
                 length_long         = ll[k];
                 flangeradius        = fr[j] * length_short ;
                 flange_thickness    = ft[l];
-                counter             = counter +1
 
                 
                 // File name convention
                 // T(flange_thickness)(flangeradius)(length short/long)
                 // T(123)(1234)(12345_12)
-                out_file        = loc+"_"+cft+"_"+cfr+"_"+cls+"_"+cll+".FEM"
-
+                out_file        = loc+cft+cfr+cls+cll+".FEM"
+                
 
 
                 CornerA = Point(-length_short / 2, -length_long / 2,  0 m);
@@ -83,7 +81,7 @@ for (i = 0; i < ls.length; i++) {
                 ScrapPlate = CentrePlate.divide(JoinedFlange);
                 Delete(ScrapPlate);
 
-                GenieRules.Meshing.superElementType = counter;
+                GenieRules.Meshing.superElementType = cft+cfr+cls+cll;
                 SimplifyTopology();
                 Analysis1.step(1).execute();
                 Analysis1.step(3).execute();
