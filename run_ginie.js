@@ -131,6 +131,8 @@ for (i = 0; i < ls.length; i++) {
 
             FemExporter = ExportMeshFem();
             FemExporter.DoExport(out_file);  // save the variable to the file to use in Gini
+
+            console.log("File saved: " + out_file)
             
         }
     }
