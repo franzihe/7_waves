@@ -1,8 +1,8 @@
-ls = new Array(125, 250, 500, 150, 300)      // length short
-ll = new Array(500, 300, )                 // length long
-sh = 100                            // Sleeve_H
-fr = new Array(0.5, 0.33, 0.25, 0.2)         // flangeradius
-counter = 0
+ls = new Array(125 mm, 250 mm, 500 mm, 150 mm, 300 mm);      // length short
+ll = new Array(500 mm, 300 mm);                   // length long
+sh = 100 mm;                                    // Sleeve_H
+fr = new Array(0.5, 0.33, 0.25, 0.2);         // flangeradius
+counter = 0;
 
 
 
@@ -12,23 +12,23 @@ for (i = 0; i < ls.length; i++) {
         for (j = 0; j < fr.length; j++){
 
         
-            length_short = ls[i] mm;
-            length_long  = ll[k] mm;
-            Sleeve_H     = sh mm;
-            flangeradius = fr[j] * length_short 
+            length_short = ls[i];
+            length_long  = ll[k];
+            Sleeve_H     = sh;
+            flangeradius = fr[j] * length_short ;
             counter = counter +1
 
             // console.log(length_short, length_long, fr[j], counter)
             out_file        = "C:/DNVGL/Workspaces/GeniE/RectangularSCF/mesh10/T"+counter+".FEM"
             // export_rectangular(length_short, length_long, Sleeve_H, flangeradius, out_file)
-            CornerA = Point(-length_short / 2, -length_long / 2, 10 m);
-            CornerB = Point(-length_short / 2, length_long / 2, 10 m);
-            CornerC = Point(length_short / 2, length_long / 2, 10 m);
-            CornerD = Point(length_short / 2, -length_long / 2, 10 m);
-            MidAB = Point(-length_short / 2, 0, 10 m);
-            MidBC = Point(0, length_long / 2, 10 m);
-            MidCD = Point(length_short / 2, 0, 10 m);
-            MidAD = Point(0, -length_long / 2, 10 m);
+            CornerA = Point(-length_short / 2, -length_long / 2,  0 m);
+            CornerB = Point(-length_short / 2, length_long / 2, 0 m);
+            CornerC = Point(length_short / 2, length_long / 2, 0 m);
+            CornerD = Point(length_short / 2, -length_long / 2, 0 m);
+            MidAB = Point(-length_short / 2, 0, 0 m);
+            MidBC = Point(0, length_long / 2, 0 m);
+            MidCD = Point(length_short / 2, 0, 0 m);
+            MidAD = Point(0, -length_long / 2, 0 m);
 
 
 
@@ -42,10 +42,10 @@ for (i = 0; i < ls.length; i++) {
             line_D_AD = CreateLineTwoPoints(CornerD, MidAD);
 
 
-            Radius_A = CreateCircularFilletBetweenLinearSegments(line_A_AB, MidAB, line_A_AD, MidAD, flangeradius);
-            Radius_B = CreateCircularFilletBetweenLinearSegments(line_B_AB, MidAB, line_B_BC, MidBC, flangeradius);
-            Radius_C = CreateCircularFilletBetweenLinearSegments(line_C_BC, MidBC, line_C_CD, MidCD, flangeradius);
-            Radius_D = CreateCircularFilletBetweenLinearSegments(line_D_AD, MidAD, line_D_CD, MidCD, flangeradius);
+            Radius_A = CreateCircularFilletBetweenLinearSegments(line_A_AB, MidAB, line_A_AD, MidAD, flangeradius - 1 mm);
+            Radius_B = CreateCircularFilletBetweenLinearSegments(line_B_AB, MidAB, line_B_BC, MidBC, flangeradius - 1 mm);
+            Radius_C = CreateCircularFilletBetweenLinearSegments(line_C_BC, MidBC, line_C_CD, MidCD, flangeradius - 1 mm);
+            Radius_D = CreateCircularFilletBetweenLinearSegments(line_D_AD, MidAD, line_D_CD, MidCD, flangeradius - 1 mm);
 
 
 
@@ -59,14 +59,14 @@ for (i = 0; i < ls.length; i++) {
             Pl_D_dn = SweepCurve(Radius_D, Vector3d(0, 0, -Sleeve_H / 2));
 
 
-            CentrePlate = Plate(Point(-400 mm, -400 mm, 10 m), Point(-400 mm, 400mm, 10 m), Point(400 mm, 400 mm, 10 m), Point(400 mm, -400mm, 10 m));
+            CentrePlate = Plate(Point(-400 mm, -400 mm, 0 m), Point(-400 mm, 400mm, 0 m), Point(400 mm, 400 mm, 0 m), Point(400 mm, -400mm, 0 m));
 
             tmpArrayOfCurves = JoinMultipleCurves(Array(Radius_B, Radius_C, Radius_D, Radius_A), true);
             Rename(tmpArrayOfCurves[0], "JoinedFlange");
             ScrapPlate = CentrePlate.divide(JoinedFlange);
             Delete(ScrapPlate);
 
-            GenieRules.Meshing.superElementType = file_number;
+            GenieRules.Meshing.superElementType = counter;
             SimplifyTopology();
             Analysis1.step(1).execute();
             Analysis1.step(3).execute();
@@ -74,7 +74,9 @@ for (i = 0; i < ls.length; i++) {
             FemExporter = ExportMeshFem();
             FemExporter.DoExport(out_file);  // save the variable to the file to use in Gini
 
-            console.log("File saved: " + out_file)
+            // console.log("File saved: " + out_file);
+
+
             
         }
     }
