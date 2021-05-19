@@ -1,7 +1,7 @@
-var ls = [125, 250, 500, 150, 300]      // length short
-var ll = [500, 300, ]                   // length long
+var ls = new Array(125, 250, 500, 150, 300)      // length short
+var ll = new Array(500, 300, )                 // length long
 var sh = 100                            // Sleeve_H
-var fr = [0.5, 0.33, 0.25, 0.2]         // flangeradius
+var fr = new Array(0.5, 0.33, 0.25, 0.2)         // flangeradius
 var counter = 0
 
 var i; 
