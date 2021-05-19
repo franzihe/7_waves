@@ -13,13 +13,13 @@ loc = "C:/DNVGL/Workspaces/GeniE/RectangularSCF/mesh10/T"
 for (i = 0; i < ls.length; i++) {
     cls = i+1;                // counter for length short naming convention
     for (k = 0; k < ll.length; k++){
-        cll = i+1;            // counter for length long naming convention
+        cll = k+1;            // counter for length long naming convention
 
         for (j = 0; j < fr.length; j++){
-            cfr = i+1;        // counter for flangeradius naming convention
+            cfr = j+1;        // counter for flangeradius naming convention
 
             for (l = 0; l < ft.length; l++){
-                cft = i+1;    // counter for flange thickness naming convention
+                cft = l+1;    // counter for flange thickness naming convention
 
         
                 length_short        = ls[i];
