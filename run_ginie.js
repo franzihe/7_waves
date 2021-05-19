@@ -3,10 +3,10 @@ ll              = new Array(500 mm, 300 mm);                         // length l
 Sleeve_H        = 100 mm;                                            // Sleeve_H
 fr              = new Array(0.5, 0.33, 0.25, 0.2);                   // flangeradius
 plate_thickness = T10;                                               // plate thickness
-ft              = new Array(T5, T10, T15);                           // flange thickness
+ft              = new Array(T05, T10, T15);                           // flange thickness
 
 
-loc = "C:/DNVGL/Workspaces/GeniE/RectangularSCF/mesh10/T"
+loc = "C:/DNVGL/Workspaces/GeniE/RectangularSCF/mesh10/T";
 
 
  
@@ -32,7 +32,7 @@ for (i = 0; i < ls.length; i++) {
                  // File name convention
                  // T(flange_thickness)(flangeradius)(length short)(length long)
                  // T(123)(1234)(12345)(12)
-                 out_file        = loc+cft+cfr+cls+cll+".FEM"
+                 out_file        = loc+cft+cfr+cls+cll+".FEM";
             
             
                 if (ll[k] == 500 mm){
@@ -114,7 +114,7 @@ for (i = 0; i < ls.length; i++) {
                         
                     }
                     else {
-                        continue
+                        continue;
                     }
                 }
                 if (ll[k] == 300 mm){
@@ -195,7 +195,7 @@ for (i = 0; i < ls.length; i++) {
                         Delete(CornerB);
                     }
                     else {
-                        continue
+                        continue;
                     }
                 }
             }
