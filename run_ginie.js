@@ -29,8 +29,8 @@ for (i = 0; i < ls.length; i++) {
 
                 
                 // File name convention
-                // T(flange_thickness)(flangeradius)(length short/long)
-                // T(123)(1234)(12345_12)
+                // T(flange_thickness)(flangeradius)(length short)(length long)
+                // T(123)(1234)(12345)(12)
                 out_file        = loc+cft+cfr+cls+cll+".FEM"
                 
 
